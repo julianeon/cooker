@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Book Charts</title>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Google Chart Example</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-      google.charts.load('current', {
-        packages: ['corechart', 'columnchart']
-      });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        const data = google.visualization.arrayToDataTable([
-          ['Day', 'Page'],
-          ['0', 0],
-          ['1', 24],
-          ['2', 24],
-          ['3', 41],
-          ['4', 41],
-          ['5', 41],
-          ['6', 41],
-          ['7', 41],
-          ['8', 41],
-          ['9', 41],
-          ['10', 41],
-          ['11', 41],
-          ['12', 41],
-          ['13', 82],
-          ['14', 91],
-          ['15', 98],
-          ['16', 102],
-          ['17', 102],
-          ['18', 102],
-          ['19', 108],
-          ['20', 116],
-          ['21', 116],
-          ['22', 123],
-          ['23', 127]
-        ]);
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+        
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
 
-        const options = {
-          title: 'Arabian Nights',
-          legend: 'none',
-        };
-
-        const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
-        chart.draw(data, options);
-      }
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('number', 'Value');
+            data.addColumn({type: 'string', role: 'style'});
+            data.addRows([
+          ['1', 24, 'color: #3fb0e9'],
+          ['2', 32, 'color: #42c698'],
+          ['3', 41, 'color: #3fb0e9'],
+          ['4', 42, 'color: #42c698'],
+          ['5', 46, 'color: #42c698'],
+          ['6', 51, 'color: #42c698'],
+          ['7', 55, 'color: #42c698'],
+          ['8', 61, 'color: #42c698'],
+          ['9', 65, 'color: #42c698'],
+          ['10', 70, 'color: #42c698'],
+          ['11', 75, 'color: #42c698'],
+          ['12', 80, 'color: #42c698'],
+          ['13', 82, 'color: #42c698'],
+          ['14', 91, 'color: #3fb0e9'],
+          ['15', 98, 'color: #3fb0e9'],
+          ['16', 102, 'color: #3fb0e9'],
+          ['17', 102, 'color: #3fb0e9'],
+          ['18', 102, 'color: #3fb0e9'],
+          ['19', 108, 'color: #3fb0e9'],
+          ['20', 116, 'color: #3fb0e9'],
+          ['21', 116, 'color: #3fb0e9'],
+          ['22', 123, 'color: #3fb0e9'],
+          ['23', 127, 'color: #3fb0e9']
+            ]);
+            
+            var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
+            chart.draw(data, {
+                height: 500,
+                width: 1000,
+                legend: {
+                    position: 'none'
+                }
+            });
+        }
     </script>
 </head>
 <body>
-    <div id="myChart" style="max-width:700px; height:400px"></div>
+    <div id="chart_div"></div>
 </body>
 </html>
