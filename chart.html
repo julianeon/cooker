@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Charts Example</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      // Load the Visualization API and the ColumnChart package
+      google.charts.load('current', {
+        packages: ['corechart', 'columnchart']
+      });
+
+      // Set a callback to run when the API is loaded
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        // Set Data
+        const data = google.visualization.arrayToDataTable([
+          ['Day', 'Page'],
+          ['0', 20],
+          ['1', 40],
+          ['2', 60],
+          ['3', 91],
+          ['4', 98],
+          ['5', 102],
+          ['6', 108],
+          ['7', 116],
+          ['8', 116],
+          ['9', 123]
+        ]);
+
+        // Set Options
+        const options = {
+          title: 'World Wide Wine Production'
+        };
+
+        // Draw the chart
+        const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <div id="myChart" style="max-width:700px; height:400px"></div>
+</body>
+</html>
