@@ -12,45 +12,28 @@
       // Set a callback to run when the API is loaded
       google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        // Set Data
-        const data = google.visualization.arrayToDataTable([
-  	  ['Day', 'Page', { role: 'style' }],
-          ['0', 0, null],
-          ['1', 24, null],
-          ['2', 24, null],
-          ['3', 41, 'yellow'],
-          ['4', 41, null],
-          ['5', 41, null],
-          ['6', 41, null],
-          ['7', 41, null],
-          ['8', 41, null],
-          ['9', 41, null],
-          ['10', 41, null],
-          ['11', 41, null],
-          ['12', 41, null],
-          ['13', 82, null],
-          ['14', 91, null],
-          ['15', 98, null],
-          ['16', 102, null],
-          ['17', 102, null],
-          ['18', 102, null],
-          ['19', 108, null],
-          ['20', 116, null],
-          ['21', 116, null],
-          ['22', 123, null],
-          ['23', 127, null]
-        ]);
+ 
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Name');
+    data.addColumn('number', 'Value');
+    data.addColumn({type: 'string', role: 'style'});
+    data.addRows([
+        ['Foo', 5, 'color: #ac6598'],
+        ['Bar', 7, 'color: #3fb0e9'],
+        ['Baz', 3, 'color: #42c698']
+    ]);
 
+    var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
+    chart.draw(data, {
+        height: 400,
+        width: 600,
+        legend: {
+            position: 'none'
+        }
+    });
+}
         // Set Options
-        const options = {
-          title: 'Arabian Nights'
-        };
-
-        // Draw the chart
-        const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
-        chart.draw(data, options);
-      }
     </script>
 </head>
 <body>
