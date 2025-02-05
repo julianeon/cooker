@@ -37,15 +37,22 @@
           ['23', 127]
         ]);
 
+        const view = new google.visualization.DataView(data);
+        view.setColumns([0, 1, {
+          calc: function(dt, row) {
+            return row === 3 ? '#FFFF00' : '#4682b4';
+          },
+          type: 'string',
+          role: 'style'
+        }]);
+
         const options = {
           title: 'Arabian Nights',
-          legend: 'none',
-          colors: Array(24).fill('#4682b4'),  // Default blue color
+          legend: 'none'
         };
-        options.colors[3] = 'yellow';  // Set day 3 to yellow
 
         const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
-        chart.draw(data, options);
+        chart.draw(view, options);
       }
     </script>
 </head>
