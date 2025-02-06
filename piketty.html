@@ -9,6 +9,7 @@
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
             const colorReal = 'color: #3fb0e9';
+	    const booktitle = 'Piketty';
             
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Name');
@@ -31,7 +32,7 @@
             chart.draw(data, {
                 height: 500,
                 width: 1000,
-                title: 'Piketty',
+                title: booktitle,
                 titleTextStyle: {
                     fontSize: 18,
                     bold: true
