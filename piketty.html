@@ -9,6 +9,7 @@
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
             const colorReal = 'color: #3fb0e9';
+	    const colorActive = 'color: #b53737';
 	    const booktitle = 'Piketty';
             
             var data = new google.visualization.DataTable();
@@ -26,6 +27,7 @@
                 ['8', 655, colorReal],
                 ['9', 670, colorReal],
                 ['10', 690, colorReal],
+                ['11', 710, colorActive],
             ]);
             
             var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
