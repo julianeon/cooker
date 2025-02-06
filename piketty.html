@@ -4,36 +4,35 @@
     <title>Google Chart Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
         
-        // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
-
         function drawChart() {
+            const colorReal = 'color: #3fb0e9';
+            
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Name');
             data.addColumn('number', 'Value');
             data.addColumn({type: 'string', role: 'style'});
             data.addRows([
-          ['1', 550, 'color: #3fb0e9'],
-          ['2', 565, 'color: #3fb0e9'],
-          ['3', 580, 'color: #3fb0e9'],
-          ['4', 595, 'color: #3fb0e9'],
-          ['5', 610, 'color: #3fb0e9'],
-          ['6', 625, 'color: #3fb0e9'],
-          ['7', 640, 'color: #3fb0e9'],
-          ['8', 655, 'color: #3fb0e9'],
-          ['9', 670, 'color: #3fb0e9'],
-          ['10', 690, 'color: #3fb0e9'],
+                ['1', 550, colorReal],
+                ['2', 565, colorReal],
+                ['3', 580, colorReal],
+                ['4', 595, colorReal],
+                ['5', 610, colorReal],
+                ['6', 625, colorReal],
+                ['7', 640, colorReal],
+                ['8', 655, colorReal],
+                ['9', 670, colorReal],
+                ['10', 690, colorReal],
             ]);
             
             var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
             chart.draw(data, {
                 height: 500,
                 width: 1000,
-                title: 'Piketty',  // Added title here
-                titleTextStyle: {  // Optional: customize title style
+                title: 'Piketty',
+                titleTextStyle: {
                     fontSize: 18,
                     bold: true
                 },

@@ -4,49 +4,50 @@
     <title>Google Chart Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
         
-        // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
-
         function drawChart() {
+            const colorReal = 'color: #3fb0e9';
+            const colorGuess = 'color: #42c698';
+	    const booktitle = 'Arabian Nights';
+            
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Name');
             data.addColumn('number', 'Value');
             data.addColumn({type: 'string', role: 'style'});
             data.addRows([
-          ['1', 24, 'color: #3fb0e9'],
-          ['2', 32, 'color: #42c698'],
-          ['3', 41, 'color: #3fb0e9'],
-          ['4', 44, 'color: #42c698'],
-          ['5', 47, 'color: #42c698'],
-          ['6', 51, 'color: #42c698'],
-          ['7', 55, 'color: #42c698'],
-          ['8', 61, 'color: #42c698'],
-          ['9', 65, 'color: #42c698'],
-          ['10', 70, 'color: #42c698'],
-          ['11', 75, 'color: #42c698'],
-          ['12', 79, 'color: #42c698'],
-          ['13', 82, 'color: #42c698'],
-          ['14', 91, 'color: #3fb0e9'],
-          ['15', 98, 'color: #3fb0e9'],
-          ['16', 102, 'color: #3fb0e9'],
-          ['17', 104, 'color: #42c698'],
-          ['18', 106, 'color: #42c698'],
-          ['19', 108, 'color: #3fb0e9'],
-          ['20', 116, 'color: #3fb0e9'],
-          ['21', 116, 'color: #3fb0e9'],
-          ['22', 123, 'color: #3fb0e9'],
-          ['23', 127, 'color: #3fb0e9']
+                ['1', 24, colorReal],
+                ['2', 32, colorGuess],
+                ['3', 41, colorReal],
+                ['4', 44, colorGuess],
+                ['5', 47, colorGuess],
+                ['6', 51, colorGuess],
+                ['7', 55, colorGuess],
+                ['8', 61, colorGuess],
+                ['9', 65, colorGuess],
+                ['10', 70, colorGuess],
+                ['11', 75, colorGuess],
+                ['12', 79, colorGuess],
+                ['13', 82, colorGuess],
+                ['14', 91, colorReal],
+                ['15', 98, colorReal],
+                ['16', 102, colorReal],
+                ['17', 104, colorGuess],
+                ['18', 106, colorGuess],
+                ['19', 108, colorReal],
+                ['20', 116, colorReal],
+                ['21', 116, colorReal],
+                ['22', 123, colorReal],
+                ['23', 127, colorReal]
             ]);
             
             var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
             chart.draw(data, {
                 height: 500,
                 width: 1000,
-                title: 'Arabian Nights',  // Added title here
-                titleTextStyle: {  // Optional: customize title style
+                title: booktitle,
+                titleTextStyle: {
                     fontSize: 18,
                     bold: true
                 },
