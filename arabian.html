@@ -10,6 +10,7 @@
         function drawChart() {
             const colorReal = 'color: #3fb0e9';
             const colorGuess = 'color: #42c698';
+            const colorActive = 'color: #b53737';
 	    const booktitle = 'Arabian Nights';
             
             var data = new google.visualization.DataTable();
@@ -40,8 +41,7 @@
                 ['21', 119, colorGuess],
                 ['22', 123, colorReal],
                 ['23', 128, colorReal],
-                ['24', 133, colorReal],
-                ['100', 831, colorReal]
+                ['24', 133, colorActive],
             ]);
             
             var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
